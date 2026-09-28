@@ -1,0 +1,171 @@
+/* Main Login Container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff5f7;
+  padding: 20px;
+}
+
+/* Login Card */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.login-card h1 {
+  text-align: center;
+  font-size: 38px;
+  line-height: 1.3;
+  margin: 0 0 10px;
+  color: #b83d70;
+  white-space: normal;
+}
+
+/* Description */
+.login-card > p {
+  text-align: center;
+  color: #777;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Customer / Admin Role Selection */
+.role-selection {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* Role Buttons */
+.role-button {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Role Button Hover */
+.role-button:hover {
+  border-color: #b83d70;
+  background: #fff5f7;
+}
+
+/* Selected Role */
+.role-button.active {
+  background: #b83d70;
+  color: #fff;
+  border-color: #b83d70;
+}
+
+/* Login Form */
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.login-card label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input Fields */
+.login-card input {
+  padding: 13px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Input Focus */
+.login-card input:focus {
+  outline: none;
+  border-color: #b83d70;
+  box-shadow: 0 0 0 2px rgba(184, 61, 112, 0.1);
+}
+
+/* Login Submit Button */
+.login-card form button {
+  padding: 14px;
+  background: #b83d70;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Submit Button Hover */
+.login-card form button:hover:not(:disabled) {
+  background: #962d59;
+}
+
+/* Disabled Button */
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.login-error {
+  padding: 12px;
+  margin-bottom: 20px;
+  background: #ffe5e5;
+  color: #b00020;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 25px;
+  text-align: center;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Register Link */
+.login-footer a {
+  color: #b83d70;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px;
+  }
+
+  .login-card h1 {
+    font-size: 30px;
+  }
+
+  .role-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
