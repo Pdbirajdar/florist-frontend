@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const API_URL = "https://florist-backend-sx2.onrender.com/api";
+const API_URL = "https://florist-backend-sx52.onrender.com/api";
 
 function SellerRegister() {
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ function SellerRegister() {
       ...formData,
       [e.target.name]: e.target.value,
     });
-
     setError("");
   };
 
@@ -37,25 +36,21 @@ function SellerRegister() {
     e.preventDefault();
     setError("");
 
+    const name = formData.name.trim();
     const email = formData.email.trim();
 
-    // Validate email
-    if (!isValidEmail(email)) {
-      setError(
-        "Please enter a valid email address, e.g. example@gmail.com"
-      );
+    if (!name) {
+      setError("Please enter your full name.");
       return;
     }
 
-    // Validate password
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     if (formData.password.length < 6) {
       setError("Password must be at least 6 characters long.");
-      return;
-    }
-
-    // Validate name
-    if (!formData.name.trim()) {
-      setError("Please enter your full name.");
       return;
     }
 
@@ -70,8 +65,8 @@ function SellerRegister() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: formData.name.trim(),
-            email: email,
+            name,
+            email,
             password: formData.password,
           }),
         }
@@ -81,19 +76,16 @@ function SellerRegister() {
 
       if (!response.ok) {
         throw new Error(
-          typeof data === "string"
-            ? data
-            : data?.message ||
-                "Seller registration failed. Please try again."
+          data?.message ||
+            (typeof data === "string" ? data : null) ||
+            "Seller registration failed. Please try again."
         );
       }
 
-      // Redirect to login after successful registration
       alert(
-        typeof data === "string"
-          ? data
-          : data?.message ||
-              "Seller registered successfully. Please login to continue."
+        data?.message ||
+          (typeof data === "string" ? data : null) ||
+          "Seller registered successfully. Please login to continue."
       );
 
       navigate("/login");
@@ -111,7 +103,6 @@ function SellerRegister() {
     <div className="login-container">
       <div className="login-card">
         <h1>🌸 Become a Seller</h1>
-
         <p>Join FloristRent and list your flowers for rental.</p>
 
         {error && (
@@ -121,9 +112,7 @@ function SellerRegister() {
         )}
 
         <form onSubmit={handleSubmit}>
-          {/* Full Name */}
           <label>Full Name</label>
-
           <input
             type="text"
             name="name"
@@ -133,9 +122,7 @@ function SellerRegister() {
             required
           />
 
-          {/* Email */}
           <label>Email Address</label>
-
           <input
             type="email"
             name="email"
@@ -145,9 +132,7 @@ function SellerRegister() {
             required
           />
 
-          {/* Password */}
           <label>Password</label>
-
           <input
             type="password"
             name="password"
@@ -158,25 +143,21 @@ function SellerRegister() {
             minLength={6}
           />
 
-          {/* Submit */}
           <button type="submit" disabled={loading}>
             {loading ? "Registering..." : "Register as Seller"}
           </button>
         </form>
 
-        {/* Account Information */}
         <p className="login-footer">
           Your seller account will be activated automatically.
           You can log in after registration.
         </p>
 
-        {/* Login Link */}
         <p className="login-footer">
           Already have an account?{" "}
           <Link to="/login">Login</Link>
         </p>
 
-        {/* Customer Registration Link */}
         <p className="login-footer">
           Want to rent flowers?{" "}
           <Link to="/register">Register as Customer</Link>
