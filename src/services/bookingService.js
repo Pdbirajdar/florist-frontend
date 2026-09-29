@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://florist-backend-sx2.onrender.com/api/bookings";
+const API_URL = "https://florist-backend-sx52.onrender.com/api/bookings";
 
 const getAuthConfig = () => {
   const token = localStorage.getItem("token");
