@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const API_URL = "http://localhost:8090/api";
+const API_URL = "https://florist-backend-sx2.onrender.com/api";
 
 function SellerRegister() {
   const navigate = useNavigate();

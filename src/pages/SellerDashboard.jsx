@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from "recharts";
 
-const API_URL = "http://localhost:8090/api";
+const API_URL = "https://florist-backend-sx2.onrender.com/api";
 
 function SellerDashboard() {
   const [seller, setSeller] = useState(null);

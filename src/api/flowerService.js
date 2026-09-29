@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8090/api/flowers";
+const API_URL = "https://florist-backend-sx2.onrender.com/api/flowers";
 
 // Get JWT token
 const getAuthHeaders = () => {

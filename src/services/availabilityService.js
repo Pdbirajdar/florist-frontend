@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8090/api/flowers";
+const API_BASE_URL = "https://florist-backend-sx2.onrender.com/api/flowers";
 
 export const getFlowerAvailability = async (
   flowerId,
