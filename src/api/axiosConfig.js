@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://florist-backend-sx52.onrender.com/api",
+  baseURL: "https://florist-backend-sx2.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
